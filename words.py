@@ -1,4 +1,4 @@
-words = ("aback",
+WORDS = ("aback",
 "abaft",
 "abase",
 "abate",
