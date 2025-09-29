@@ -12,7 +12,9 @@ def main():
             positions = input("Enter the position of the known letters:\n")
             if len(positions) > 0:
                 current_info, potential_words = correct_position(current_info, potential_words, word, positions)
-                potential_words = letters_not_known(potential_words, input("Enter letters whose postions are not known:\n"))
+            letters = input("Enter letters whose positions are not known:\n").split(" ")
+            if len(letters) > 0:
+                potential_words = letters_not_known(potential_words, letters)
             print(current_info)
             print(potential_words)
         elif word == "exit":
@@ -44,8 +46,7 @@ def correct_position(current_info, potential_words, word, positions):
 
     return buffer_info, buffer_list  
 
-def letters_not_known(potential_words, letters):
-    letter_list = letters.split(" ")
+def letters_not_known(potential_words, letter_list):
     buffer_list = []
     for letter in letter_list:
         for word in potential_words:
